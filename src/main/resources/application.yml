@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://121.36.198.221:3306/2?characterEncoding=utf8&useSSL=true
+    username: 2
+    password: WHUstu02
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.reuben.databasestudy.entity
