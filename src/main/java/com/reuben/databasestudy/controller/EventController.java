@@ -1,10 +1,7 @@
 package com.reuben.databasestudy.controller;
 
 import com.reuben.databasestudy.entity.Event;
-import com.reuben.databasestudy.entity.Team;
 import com.reuben.databasestudy.mapper.EventMapper;
-import com.reuben.databasestudy.mapper.TeamMapper;
-import com.reuben.databasestudy.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

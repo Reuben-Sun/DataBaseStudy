@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reuben.databasestudy.mapper.AthleteDetailMapper">
+
+    <resultMap id="DetailResult" type="AthleteDetail">
+        <association property="athlete" javaType="Athlete">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="idNumber" column="id_number"/>
+            <result property="age" column="age"/>
+            <result property="ageClassId" column="age_class_id"/>
+        </association>
+        <collection property="events" ofType="Event" columnPrefix="event_">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="sex" column="sex"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectById" resultMap="DetailResult">
+        select
+            A.id as id,
+            A.name as name,
+            A.id_number as id_number,
+            A.age as age,
+            A.age_class_id as age_class_id,
+            C.id as event_id,
+            C.name as event_name,
+            C.sex as event_sex
+        from athlete A
+            left outer join attend B on A.id = B.athlete_id
+            left outer join event C on C.id = B.event_id
+        where A.id = #{id}
+    </select>
+</mapper>
