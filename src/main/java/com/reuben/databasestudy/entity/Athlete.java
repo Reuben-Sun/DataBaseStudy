@@ -6,7 +6,8 @@ import lombok.Data;
 public class Athlete {
     int id;
     String name;
-    int idNumber;
+    String idNumber;
     int age;
     int ageClassId;
+    int sex;
 }

@@ -5,6 +5,7 @@
 <mapper namespace="com.reuben.databasestudy.mapper.AthleteDetailMapper">
 
     <resultMap id="DetailResult" type="AthleteDetail">
+        <id column="id" />
         <association property="athlete" javaType="Athlete">
             <id property="id" column="id"/>
             <result property="name" column="name"/>
@@ -26,6 +27,7 @@
             A.id_number as id_number,
             A.age as age,
             A.age_class_id as age_class_id,
+            A.sex as sex,
             C.id as event_id,
             C.name as event_name,
             C.sex as event_sex
@@ -34,4 +36,30 @@
             left outer join event C on C.id = B.event_id
         where A.id = #{id}
     </select>
+
+    <select id="selectAll" resultMap="DetailResult">
+        select
+            A.id as id,
+            A.name as name,
+            A.id_number as id_number,
+            A.age as age,
+            A.age_class_id as age_class_id,
+            A.sex as sex,
+            C.id as event_id,
+            C.name as event_name,
+            C.sex as event_sex
+        from athlete A
+                 left outer join attend B on A.id = B.athlete_id
+                 left outer join event C on C.id = B.event_id
+    </select>
+
+    <insert id="insertAthlete" useGeneratedKeys="true" keyProperty="id">
+        insert into athlete (name, id_number, age, age_class_id, sex)
+        values (#{name}, #{idNumber}, #{age}, #{ageClassId}, #{sex})
+    </insert>
+
+    <insert id="insertAttend">
+        insert into attend (athlete_id, event_id, type, group_id, order_number)
+        values (#{athleteId}, #{eventId}, #{type}, #{groupId}, #{orderNumber})
+    </insert>
 </mapper>

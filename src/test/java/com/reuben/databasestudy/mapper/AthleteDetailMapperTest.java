@@ -20,7 +20,7 @@ class AthleteDetailMapperTest {
 
     @Test
     void selectById() {
-        List<AthleteDetail> details = athleteDetailMapper.selectById(1);
-        assertEquals(1, details.size());
+        AthleteDetail detail = athleteDetailMapper.selectById(1);
+        assertEquals("张文迪", detail.getAthlete().getName());
     }
 }
