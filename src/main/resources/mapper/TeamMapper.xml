@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reuben.databasestudy.mapper.TeamDetailMapper">
+    <resultMap id="DetailResult" type="TeamDetail">
+        <id column="id"/>
+        <association property="team" javaType="Team" columnPrefix="team_">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="account" column="account"/>
+            <result property="password" column="password"/>
+        </association>
+        <association property="coach" javaType="Coach" columnPrefix="coach_">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="phone" column="phone"/>
+            <result property="sex" column="sex"/>
+            <result property="teamId" column="team_id"/>
+            <result property="idNumber" column="id_number"/>
+        </association>
+        <association property="doctor" javaType="Doctor" columnPrefix="doctor_">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="phone" column="phone"/>
+            <result property="sex" column="sex"/>
+            <result property="teamId" column="team_id"/>
+            <result property="idNumber" column="id_number"/>
+        </association>
+        <collection property="athleteDetails" ofType="AthleteDetail" columnPrefix="athlete_">
+
+        </collection>
+        <collection property="referees" ofType="Referee" columnPrefix="referee">
+
+        </collection>
+    </resultMap>
+</mapper>
