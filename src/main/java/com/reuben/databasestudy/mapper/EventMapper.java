@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface EventMapper {
-    @Insert("insert into event (name, sex) values (#{name}, #{sex}")
+    @Insert("insert into event (name, sex) values (#{name}, #{sex})")
     int insertEvent(Event event);
     @Delete("delete from event where id=#{id}")
     int deleteEvent(int id);
