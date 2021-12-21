@@ -13,6 +13,8 @@ public interface TeamMapper {
     int deleteTeam(int id);
     @Select("select * from team")
     List<Team> selectAll();     //返回所有队伍信息
+    @Select("select * from team where id=#{id}")
+    Team selectTeamById(int id);
     @Select("select * from team where account=#{account}")
     Team selectPassword(String account);
     @Update("update team set name=#{name}, account=#{account}, password=#{password} where id=#{id}")

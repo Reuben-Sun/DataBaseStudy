@@ -19,6 +19,11 @@ public class TeamController {
         List<Team> teams = teamMapper.selectAll();
         return teams;
     }
+    @GetMapping("/selectTeamById")
+    Team selectTeamById(int id){
+        Team team = teamMapper.selectTeamById(id);
+        return team;
+    }
     //加一个队伍信息
     @PostMapping("/addTeam")
     int insertTeam(@RequestBody Team team){
@@ -37,10 +42,15 @@ public class TeamController {
         int i = teamMapper.deleteTeam(id);
         return i;
     }
-
-    @GetMapping("/getPassword")
-    String getPassword(String account){
+    //队伍登陆，如果账号密码正确，则返回队伍id
+    @GetMapping("/login")
+    Integer getPassword(String account, String password){
         Team team = teamMapper.selectPassword(account);
-        return team.getPassword();
+        if(password.equals(team.getPassword())){
+            return team.getId();
+        }
+        else{
+            return null;
+        }
     }
 }
