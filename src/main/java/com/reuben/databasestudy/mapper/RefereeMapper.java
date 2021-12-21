@@ -16,6 +16,8 @@ public interface RefereeMapper {
     List<Referee> selectAll();
     @Select("select * from referee where team_id=#{teamId}")
     List<Referee> selectByTeam(int teamId);
+    @Select("select * from referee where id=#{id}")
+    Referee selectById(int id);
     @Select("select * from referee where account=#{account}")
     Referee selectPassword(String account);
     @Update("update referee set name=#{name}, id_number=#{idNumber}, phone=#{phone}, team_id=#{teamId}, account=#{account}, password=#{password}")

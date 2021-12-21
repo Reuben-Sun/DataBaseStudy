@@ -25,6 +25,11 @@ public class RefereeController {
         return referees;
     }
 
+    @GetMapping("/selectById")
+    Referee selectById(int id){
+        Referee referee = refereeMapper.selectById(id);
+        return referee;
+    }
     @PostMapping("/insertReferee")
     int insertReferee(@RequestBody Referee referee){
         int i = refereeMapper.insertReferee(referee);
@@ -43,9 +48,14 @@ public class RefereeController {
         return i;
     }
 
-    @GetMapping("/getPassword")
-    String getPassword(String account){
+    @GetMapping("/login")
+    Integer getPassword(String account, String password){
         Referee referee = refereeMapper.selectPassword(account);
-        return referee.getPassword();
+        if(password.equals(referee.getPassword())){
+            return referee.getId();
+        }
+        else {
+            return null;
+        }
     }
 }
