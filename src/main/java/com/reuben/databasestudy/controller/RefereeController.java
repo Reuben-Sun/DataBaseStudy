@@ -43,5 +43,9 @@ public class RefereeController {
         return i;
     }
 
-
+    @GetMapping("/getPassword")
+    String getPassword(String account){
+        Referee referee = refereeMapper.selectPassword(account);
+        return referee.getPassword();
+    }
 }
