@@ -37,4 +37,10 @@ public class TeamController {
         int i = teamMapper.deleteTeam(id);
         return i;
     }
+
+    @GetMapping("/getPassword")
+    String getPassword(String account){
+        Team team = teamMapper.selectPassword(account);
+        return team.getPassword();
+    }
 }
