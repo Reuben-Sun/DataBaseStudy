@@ -48,14 +48,14 @@ public class RefereeController {
         return i;
     }
 
-    @GetMapping("/login")
-    Integer getPassword(String account, String password){
-        Referee referee = refereeMapper.selectPassword(account);
-        if(password.equals(referee.getPassword())){
-            return referee.getId();
-        }
-        else {
-            return null;
-        }
-    }
+//    @GetMapping("/login")
+//    Integer getPassword(String account, String password){
+//        Referee referee = refereeMapper.selectPassword(account);
+//        if(password.equals(referee.getPassword())){
+//            return referee.getId();
+//        }
+//        else {
+//            return null;
+//        }
+//    }
 }

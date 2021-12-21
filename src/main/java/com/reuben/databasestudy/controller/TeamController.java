@@ -42,15 +42,15 @@ public class TeamController {
         int i = teamMapper.deleteTeam(id);
         return i;
     }
-    //队伍登陆，如果账号密码正确，则返回队伍id
-    @GetMapping("/login")
-    Integer getPassword(String account, String password){
-        Team team = teamMapper.selectPassword(account);
-        if(password.equals(team.getPassword())){
-            return team.getId();
-        }
-        else{
-            return null;
-        }
-    }
+//    //队伍登陆，如果账号密码正确，则返回队伍id
+//    @GetMapping("/login")
+//    Integer getPassword(String account, String password){
+//        Team team = teamMapper.selectPassword(account);
+//        if(password.equals(team.getPassword())){
+//            return team.getId();
+//        }
+//        else{
+//            return null;
+//        }
+//    }
 }

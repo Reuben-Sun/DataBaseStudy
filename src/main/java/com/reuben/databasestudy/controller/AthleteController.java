@@ -1,6 +1,6 @@
 package com.reuben.databasestudy.controller;
 
-import com.reuben.databasestudy.entity.AthleteDetail;
+import com.reuben.databasestudy.dto.AthleteDetail;
 import com.reuben.databasestudy.service.AthleteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,13 +1,11 @@
 package com.reuben.databasestudy.mapper;
 
-import com.reuben.databasestudy.entity.AthleteDetail;
+import com.reuben.databasestudy.dto.AthleteDetail;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 

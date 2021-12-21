@@ -1,6 +1,6 @@
 package com.reuben.databasestudy.service;
 
-import com.reuben.databasestudy.entity.AthleteDetail;
+import com.reuben.databasestudy.dto.AthleteDetail;
 import com.reuben.databasestudy.entity.Attend;
 import com.reuben.databasestudy.entity.Event;
 import com.reuben.databasestudy.mapper.AthleteDetailMapper;
