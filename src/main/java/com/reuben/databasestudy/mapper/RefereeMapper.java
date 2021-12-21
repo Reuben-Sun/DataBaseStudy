@@ -8,7 +8,7 @@ import java.util.ListResourceBundle;
 
 @Mapper
 public interface RefereeMapper {
-    @Insert("insert into referee (name, id_number, phone, team_id, account, password) values (#{name}, #{idNumber}, #{phone}, #{team_id}, #{account}, #{password})")
+    @Insert("insert into referee (name, id_number, phone, team_id, account, password) values (#{name}, #{idNumber}, #{phone}, #{teamId}, #{account}, #{password})")
     int insertReferee(Referee referee);
     @Delete("delete from referee where id=#{id}")
     int deleteReferee(int id);
