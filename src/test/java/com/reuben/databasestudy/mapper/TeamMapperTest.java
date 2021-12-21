@@ -34,4 +34,5 @@ class TeamMapperTest {
         assertEquals(1, teams.size());
         assertEquals("23333",teams.get(0).getName());
     }
+
 }
