@@ -4,15 +4,19 @@ import com.reuben.databasestudy.entity.AthleteDetail;
 import com.reuben.databasestudy.entity.Attend;
 import com.reuben.databasestudy.entity.Event;
 import com.reuben.databasestudy.mapper.AthleteDetailMapper;
+import com.reuben.databasestudy.mapper.AttendMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class AthleteService {
     @Autowired
     AthleteDetailMapper athleteDetailMapper;
+    @Autowired
+    AttendMapper attendMapper;
 
     public AthleteDetail getAthleteById(int id){
         AthleteDetail detail = athleteDetailMapper.selectById(id);
@@ -33,6 +37,16 @@ public class AthleteService {
 
     public List<AthleteDetail> getAllAthlete(){
         List<AthleteDetail> details = athleteDetailMapper.selectAll();
+        return details;
+    }
+
+    public List<AthleteDetail> getAthleteByEvent(Integer eventId){
+        List<Attend> attends = attendMapper.selectByEvent(eventId);
+        List<AthleteDetail> details = new ArrayList<AthleteDetail>();
+        for (Attend item:
+             attends) {
+            details.add(athleteDetailMapper.selectById(item.getAthleteId()));
+        }
         return details;
     }
 }
