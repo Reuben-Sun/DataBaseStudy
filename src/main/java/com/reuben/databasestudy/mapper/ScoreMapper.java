@@ -18,4 +18,6 @@ public interface ScoreMapper {
     List<Score> selectAll();
     @Select("select * from score where athlete_id=#{athleteId} and event_id=#{eventId}")
     Score selectByAthlete(int athleteId, int eventId);
+    @Select("select * from score where event_id=#{eventId}")
+    List<Score> selectAEvent(int eventId);
 }

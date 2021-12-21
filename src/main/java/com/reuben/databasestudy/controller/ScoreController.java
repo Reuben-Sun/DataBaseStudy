@@ -25,6 +25,12 @@ public class ScoreController {
         return score;
     }
 
+    @GetMapping("/selectByEvent")
+    List<Score> selectByEvent(int eventId){
+        List<Score> scores = scoreMapper.selectAEvent(eventId);
+        return scores;
+    }
+
     @GetMapping("/deleteScore")
     int deleteScore(int id){
         int i = scoreMapper.deleteScore(id);
