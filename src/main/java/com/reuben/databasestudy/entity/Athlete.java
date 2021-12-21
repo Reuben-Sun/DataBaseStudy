@@ -10,4 +10,5 @@ public class Athlete {
     int age;
     int ageClassId;
     int sex;
+    int teamId;
 }

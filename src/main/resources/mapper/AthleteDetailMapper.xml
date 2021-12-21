@@ -12,6 +12,8 @@
             <result property="idNumber" column="id_number"/>
             <result property="age" column="age"/>
             <result property="ageClassId" column="age_class_id"/>
+            <result property="sex" column="sex"/>
+            <result property="teamId" column="team_id"/>
         </association>
         <collection property="events" ofType="Event" columnPrefix="event_">
             <id property="id" column="id"/>
@@ -28,6 +30,7 @@
             A.age as age,
             A.age_class_id as age_class_id,
             A.sex as sex,
+            A.team_id as team_id,
             C.id as event_id,
             C.name as event_name,
             C.sex as event_sex
@@ -45,6 +48,7 @@
             A.age as age,
             A.age_class_id as age_class_id,
             A.sex as sex,
+            A.team_id as team_id,
             C.id as event_id,
             C.name as event_name,
             C.sex as event_sex
@@ -54,8 +58,8 @@
     </select>
 
     <insert id="insertAthlete" useGeneratedKeys="true" keyProperty="id">
-        insert into athlete (name, id_number, age, age_class_id, sex)
-        values (#{name}, #{idNumber}, #{age}, #{ageClassId}, #{sex})
+        insert into athlete (name, id_number, age, age_class_id, sex, team_id)
+        values (#{name}, #{idNumber}, #{age}, #{ageClassId}, #{sex}, #{teamId})
     </insert>
 
     <insert id="insertAttend">
