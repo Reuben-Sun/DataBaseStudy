@@ -11,6 +11,7 @@ import java.util.List;
 public interface AthleteDetailMapper {
     List<AthleteDetail> selectAll();
     AthleteDetail selectById(int id);
+    List<AthleteDetail> selectByTeam(int teamId);
     int insertAthlete(Athlete athlete);
     int insertAttend(Attend attend);
 }

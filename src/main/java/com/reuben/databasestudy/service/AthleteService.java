@@ -36,6 +36,10 @@ public class AthleteService {
         return i;
     }
 
+    public List<AthleteDetail> selectAthleteByTeam(int teamId){
+        List<AthleteDetail> details = athleteDetailMapper.selectByTeam(teamId);
+        return details;
+    }
 //    public int insertAthleteWithGroup(AthleteDetail detail, int groupId){
 //        int i = athleteDetailMapper.insertAthlete(detail.getAthlete()); //运动员主键
 //        List<Event> events = detail.getEvents();

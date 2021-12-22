@@ -57,6 +57,24 @@
                  left outer join event C on C.id = B.event_id
     </select>
 
+    <select id="selectByTeam"   resultMap="DetailResult">
+        select
+            A.id as id,
+            A.name as name,
+            A.id_number as id_number,
+            A.age as age,
+            A.age_class_id as age_class_id,
+            A.sex as sex,
+            A.team_id as team_id,
+            C.id as event_id,
+            C.name as event_name,
+            C.sex as event_sex
+        from athlete A
+                 left outer join attend B on A.id = B.athlete_id
+                 left outer join event C on C.id = B.event_id
+        where A.team_id = #{teamId}
+    </select>
+
     <insert id="insertAthlete" useGeneratedKeys="true" keyProperty="id">
         insert into athlete (name, id_number, age, age_class_id, sex, team_id)
         values (#{name}, #{idNumber}, #{age}, #{ageClassId}, #{sex}, #{teamId})

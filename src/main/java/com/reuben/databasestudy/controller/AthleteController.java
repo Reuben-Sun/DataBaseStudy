@@ -51,4 +51,10 @@ public class AthleteController {
         return i;
     }
 
+    @GetMapping("/selectByTeam")
+    List<AthleteDetail> selectByTeam(int teamId){
+        List<AthleteDetail> details = athleteService.selectAthleteByTeam(teamId);
+        return details;
+    }
+
 }
