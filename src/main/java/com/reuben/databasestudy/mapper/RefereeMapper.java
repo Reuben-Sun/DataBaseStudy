@@ -15,7 +15,7 @@ public interface RefereeMapper {
     @Select("select * from referee")
     List<Referee> selectAll();
     @Select("select * from referee where team_id=#{teamId}")
-    List<Referee> selectByTeam(int teamId);
+    Referee selectByTeam(int teamId);
     @Select("select * from referee where id=#{id}")
     Referee selectById(int id);
     @Select("select * from referee where account=#{account}")

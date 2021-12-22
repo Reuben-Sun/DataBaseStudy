@@ -20,9 +20,9 @@ public class RefereeController {
     }
 
     @GetMapping("/selectByTeam")
-    List<Referee> selectByTeam(int teamId){
-        List<Referee> referees = refereeMapper.selectByTeam(teamId);
-        return referees;
+    Referee selectByTeam(int teamId){
+        Referee referee = refereeMapper.selectByTeam(teamId);
+        return referee;
     }
 
     @GetMapping("/selectById")
