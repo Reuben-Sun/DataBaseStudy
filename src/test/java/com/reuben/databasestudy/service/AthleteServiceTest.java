@@ -32,12 +32,12 @@ class AthleteServiceTest {
         athlete.setIdNumber("11111111");
         athlete.setSex(0);
         athlete.setAgeClassId(1);
-
+        athlete.setTeamId(4);
         List<Event> events = new ArrayList<Event>();
         Event event1 = new Event();
         event1.setId(1);
-        event1.setName("铅球");
-        event1.setSex(0);
+//        event1.setName("铅球");
+//        event1.setSex(0);
         events.add(event1);
 
         detail.setAthlete(athlete);

@@ -31,9 +31,24 @@ public class AthleteController {
         return athleteByEvent;
     }
 
+    //插入一个运动员信息，组别默认
     @PostMapping("/addAthlete")
     int insertAthlete(@RequestBody AthleteDetail athleteDetail){
         int i = athleteService.insertAthlete(athleteDetail);
         return i;
     }
+
+    @GetMapping("/selectByGroup")
+    List<AthleteDetail> selectByGroup(int groupId){
+        List<AthleteDetail> athleteByGroup = athleteService.getAthleteByGroup(groupId);
+        return athleteByGroup;
+    }
+
+    //根据运动员Id和比赛Id，修改组别
+    @GetMapping("/updateGroup")
+    int updateGroup(int athleteId, int eventId, int groupId){
+        int i = athleteService.updateAthleteGroup(athleteId, eventId, groupId);
+        return i;
+    }
+
 }

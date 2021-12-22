@@ -35,6 +35,18 @@ public class AthleteService {
         return i;
     }
 
+//    public int insertAthleteWithGroup(AthleteDetail detail, int groupId){
+//        int i = athleteDetailMapper.insertAthlete(detail.getAthlete()); //运动员主键
+//        List<Event> events = detail.getEvents();
+//        for (Event e : events) {
+//            Attend attend = new Attend();
+//            attend.setAthleteId(detail.getAthlete().getId());
+//            attend.setEventId(e.getId());
+//            attend.setGroupId(groupId);
+//            athleteDetailMapper.insertAttend(attend);
+//        }
+//        return i;
+//    }
     public List<AthleteDetail> getAllAthlete(){
         List<AthleteDetail> details = athleteDetailMapper.selectAll();
         return details;
@@ -48,5 +60,21 @@ public class AthleteService {
             details.add(athleteDetailMapper.selectById(item.getAthleteId()));
         }
         return details;
+    }
+
+    public List<AthleteDetail> getAthleteByGroup(int groupId){
+        List<Attend> attends = attendMapper.selectByGroup(groupId);
+        List<AthleteDetail> details = new ArrayList<AthleteDetail>();
+        for (Attend item:
+                attends) {
+            details.add(athleteDetailMapper.selectById(item.getAthleteId()));
+        }
+        return details;
+    }
+
+    public int updateAthleteGroup(int athleteId, int eventId,int groupId){
+        Attend attend = attendMapper.selectByEventAthlete(athleteId, eventId);
+        int i = attendMapper.updateGroup(attend.getId(), groupId);
+        return i;
     }
 }
