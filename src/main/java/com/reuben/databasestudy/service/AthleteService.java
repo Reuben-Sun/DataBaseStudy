@@ -24,12 +24,13 @@ public class AthleteService {
     }
     
     public int insertAthlete(AthleteDetail detail){
-        int i = athleteDetailMapper.insertAthlete(detail.getAthlete()); //运动员主键
+        int i = athleteDetailMapper.insertAthlete(detail.getAthlete());
         List<Event> events = detail.getEvents();
         for (Event e : events) {
             Attend attend = new Attend();
             attend.setAthleteId(detail.getAthlete().getId());
             attend.setEventId(e.getId());
+            attend.setGroupId(1);
             athleteDetailMapper.insertAttend(attend);
         }
         return i;
